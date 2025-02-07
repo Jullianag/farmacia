@@ -17,6 +17,7 @@ public class User {
 
     @Column(unique = true)
     private String email;
+    private String phone;
     private LocalDate birthDate;
     private String password;
 
@@ -26,10 +27,11 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String name, String email, LocalDate birthDate, String password) {
+    public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.phone = phone;
         this.birthDate = birthDate;
         this.password = password;
     }
@@ -56,6 +58,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public LocalDate getBirthDate() {
