@@ -1,7 +1,9 @@
 package com.projeto.farmacia.services;
 
+import com.projeto.farmacia.dto.CategoryDTO;
 import com.projeto.farmacia.dto.ProductDTO;
 import com.projeto.farmacia.dto.ProductMinDTO;
+import com.projeto.farmacia.entities.Category;
 import com.projeto.farmacia.entities.Product;
 import com.projeto.farmacia.repositories.ProductRepository;
 import com.projeto.farmacia.services.exceptions.DatabaseException;
@@ -72,5 +74,12 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+        entity.getCategories().clear();
+
+        for (CategoryDTO catDTO : dto.getCategories()) {
+            Category category = new Category();
+            category.setId(catDTO.getId());
+            entity.getCategories().add(category);
+        }
     }
 }

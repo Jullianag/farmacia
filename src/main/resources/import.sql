@@ -76,7 +76,9 @@ INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (1, 1, 
 INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (1, 3, 1, 20.57);
 INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (2, 3, 1, 20.57);
 INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (3, 1, 1, 20.31);
+INSERT INTO tb_order_item (order_id, product_id, quantity, price) VALUES (4, 6, 2, 20.31);
 
 INSERT INTO tb_payment (order_id, moment) VALUES (1, TIMESTAMP WITH TIME ZONE '2024-07-25T15:00:00Z');
 INSERT INTO tb_payment (order_id, moment) VALUES (2, TIMESTAMP WITH TIME ZONE '2024-07-30T11:00:00Z');
 INSERT INTO tb_payment (order_id, moment) VALUES (3, TIMESTAMP WITH TIME ZONE '2024-05-18T11:00:00Z');
+INSERT INTO tb_payment (order_id, moment) VALUES (4, TIMESTAMP WITH TIME ZONE '2024-02-18T11:00:00Z');
