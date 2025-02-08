@@ -1,7 +1,6 @@
 package com.projeto.farmacia.controllers.handlers;
 
 import com.projeto.farmacia.dto.CustomError;
-import com.projeto.farmacia.dto.FieldMessage;
 import com.projeto.farmacia.dto.ValidationError;
 import com.projeto.farmacia.services.exceptions.DatabaseException;
 import com.projeto.farmacia.services.exceptions.ResourceNotFoundException;
