@@ -1,6 +1,7 @@
 package com.projeto.farmacia.controllers;
 
 import com.projeto.farmacia.dto.ProductDTO;
+import com.projeto.farmacia.dto.ProductMinDTO;
 import com.projeto.farmacia.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,9 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public ResponseEntity<Page<ProductDTO>> findAll(@RequestParam(name = "name", defaultValue = "")
+    public ResponseEntity<Page<ProductMinDTO>> findAll(@RequestParam(name = "name", defaultValue = "")
                                                         String name, Pageable pageable) {
-        Page<ProductDTO> dto = productService.findAll(name, pageable);
+        Page<ProductMinDTO> dto = productService.findAll(name, pageable);
         return ResponseEntity.ok(dto);
     }
 

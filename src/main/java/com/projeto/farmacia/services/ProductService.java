@@ -1,6 +1,7 @@
 package com.projeto.farmacia.services;
 
 import com.projeto.farmacia.dto.ProductDTO;
+import com.projeto.farmacia.dto.ProductMinDTO;
 import com.projeto.farmacia.entities.Product;
 import com.projeto.farmacia.repositories.ProductRepository;
 import com.projeto.farmacia.services.exceptions.DatabaseException;
@@ -20,10 +21,10 @@ public class ProductService {
     private ProductRepository productRepository;
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(String name,
-                                    Pageable pageable) {
+    public Page<ProductMinDTO> findAll(String name,
+                                       Pageable pageable) {
         Page<Product> result = productRepository.searchByName(name, pageable);
-        return result.map(ProductDTO::new);
+        return result.map(ProductMinDTO::new);
     }
 
     @Transactional(readOnly = true)
