@@ -4,6 +4,7 @@ import com.projeto.farmacia.entities.Role;
 import com.projeto.farmacia.entities.User;
 import com.projeto.farmacia.projections.UserDetailsProjection;
 import com.projeto.farmacia.repositories.UserRepository;
+import com.projeto.farmacia.util.CustomUserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +18,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private CustomUserUtil customUserUtil;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -36,4 +40,15 @@ public class UserService implements UserDetailsService {
 
         return user;
     }
+
+        protected User authenticated() {
+            try {
+                String username = customUserUtil.getLoggedUsername();
+                return userRepository.findByEmail(username);
+            } catch (Exception e) {
+                throw new UsernameNotFoundException("Email not found");
+            }
+
+        }
+
 }

@@ -19,4 +19,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "tb_user_role.role_id " +
             "WHERE tb_user.email = :email")
     List<UserDetailsProjection> searchUserAndRolesByEmail(String email);
+
+    User findByEmail(String email);
 }
